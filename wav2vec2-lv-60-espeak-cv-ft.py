@@ -6,6 +6,9 @@ import librosa
 import time
 from datetime import timedelta
 
+#sample code source
+#https://huggingface.co/facebook/wav2vec2-lv-60-espeak-cv-ft
+
 #start time of application
 start_time = time.monotonic()
 
