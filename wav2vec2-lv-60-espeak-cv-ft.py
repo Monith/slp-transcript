@@ -15,10 +15,12 @@ model = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-lv-60-espeak-cv-ft")
      
 # load dummy dataset and read soundfiles
 ds = load_dataset("patrickvonplaten/librispeech_asr_dummy", "clean", split="validation")
- 
+print(ds) 
+
 # tokenize
 input_values = processor(ds[0]["audio"]["array"], return_tensors="pt").input_values
- 
+print(input_values) 
+
 # retrieve logits
 with torch.no_grad():
   logits = model(input_values).logits
