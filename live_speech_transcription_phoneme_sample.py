@@ -9,7 +9,7 @@ import soundfile as sf
 
 
 # load model and processor
-tokenizer = Wav2Vec2Processor.from_pretrained("facebook/wav2vec2-lv-60-espeak-cv-ft")
+tokenizer = Wav2Vec2Processor.from_pretrained("facebook/wav2vec2-lv-60-espeak-cv-ft",legacy=False, clean_up_tokenization_spaces=True)
 model = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-lv-60-espeak-cv-ft")
 
 r = sr.Recognizer()
@@ -34,7 +34,7 @@ with sr.Microphone(sample_rate=16000) as source:
 		text = tokenizer.batch_decode(tokens) # convert tokens into a string
 
 
-		print('You said: ', str(text).lower())
+		print('You said (in phonemes): ', str(text).lower())
 		val = input('Do you want to keep going? ')
 		val = str(val)
 	print('all done!')

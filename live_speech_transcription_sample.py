@@ -8,7 +8,7 @@ import io
 import soundfile as sf
 
 
-tokenizer = Wav2Vec2Processor.from_pretrained('facebook/wav2vec2-base-960h')
+tokenizer = Wav2Vec2Processor.from_pretrained('facebook/wav2vec2-base-960h',legacy=False, clean_up_tokenization_spaces=True)
 model = Wav2Vec2ForCTC.from_pretrained('facebook/wav2vec2-base-960h') 
 
 r = sr.Recognizer()
